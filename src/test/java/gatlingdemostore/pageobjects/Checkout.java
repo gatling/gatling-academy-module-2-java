@@ -1,0 +1,23 @@
+package gatlingdemostore.pageobjects;
+
+import static io.gatling.javaapi.core.CoreDsl.*;
+import static io.gatling.javaapi.http.HttpDsl.*;
+
+import io.gatling.javaapi.core.*;
+
+public class Checkout {
+
+  public static ChainBuilder viewCart =
+      doIf(session -> !session.getBoolean("customerLoggedIn"))
+          .then(exec(Customer.login))
+          .exec(
+              http("Load Cart Page")
+                  .get("/cart/view")
+                  .check(css("#grandTotal").is("$#{cartTotal}")));
+
+  public static ChainBuilder completeCheckout =
+      exec(
+          http("Checkout Cart")
+              .get("/cart/checkout")
+              .check(regex("Thanks for your order! See you soon!")));
+}
