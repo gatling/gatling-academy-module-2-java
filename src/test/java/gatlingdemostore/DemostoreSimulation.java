@@ -34,7 +34,7 @@ public class DemostoreSimulation extends Simulation {
               .exec(
                   http("Load Category Page - #{categoryName}")
                       .get("/category/#{categorySlug}")
-                      .check(css("#CategoryName").is("#{categoryName}")));
+                      .check(css("#CategoryName").isEL("#{categoryName}")));
     }
   }
 
