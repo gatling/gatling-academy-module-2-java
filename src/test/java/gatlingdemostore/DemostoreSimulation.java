@@ -53,7 +53,7 @@ public class DemostoreSimulation extends Simulation {
               .exec(
                   http("Load Category Page - #{categoryName}")
                       .get("/category/#{categorySlug}")
-                      .check(css("#CategoryName").is("#{categoryName}")));
+                      .check(css("#CategoryName").isEL("#{categoryName}")));
     }
 
     private static class Product {
@@ -62,7 +62,7 @@ public class DemostoreSimulation extends Simulation {
               .exec(
                   http("Load Product Page - #{name}")
                       .get("/product/#{slug}")
-                      .check(css("#ProductDescription").is("#{description}")));
+                      .check(css("#ProductDescription").isEL("#{description}")));
 
       private static final ChainBuilder add =
           exec(view)
