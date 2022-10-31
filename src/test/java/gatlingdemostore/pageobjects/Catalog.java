@@ -19,7 +19,7 @@ public final class Catalog {
             .exec(
                 http("Load Product Page - #{categoryName}")
                     .get("/product/#{categorySlug}")
-                    .check(xpath("//*[@id='CategoryName']").is("#{categoryName}")));
+                    .check(xpath("//*[@id='CategoryName']").isEL("#{categoryName}")));
   }
 
   public static class Product {
@@ -28,7 +28,7 @@ public final class Catalog {
             .exec(
                 http("Load Product Page - #{name}")
                     .get("/product/#{slug}")
-                    .check(css("div[class='col-8'] div[class='row'] p").is("#{description}")));
+                    .check(css("div[class='col-8'] div[class='row'] p").isEL("#{description}")));
 
     public static ChainBuilder add =
         exec(view)
