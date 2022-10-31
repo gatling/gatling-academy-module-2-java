@@ -13,7 +13,7 @@ public class Checkout {
           .exec(
               http("Load Cart Page")
                   .get("/cart/view")
-                  .check(css("#grandTotal").is("$#{cartTotal}")));
+                  .check(css("#grandTotal").isEL("$#{cartTotal}")));
 
   public static ChainBuilder completeCheckout =
       exec(
