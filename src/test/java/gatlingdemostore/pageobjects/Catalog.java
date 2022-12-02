@@ -19,7 +19,7 @@ public final class Catalog {
             .exec(
                 http("Load Product Page - #{categoryName}")
                     .get("/product/#{categorySlug}")
-                    .check(xpath("//*[@id='CategoryName']").isEL("#{categoryName}")));
+                    .check(css("h2[id='CategoryName']").isEL("#{categoryName}")));
   }
 
   public static class Product {
