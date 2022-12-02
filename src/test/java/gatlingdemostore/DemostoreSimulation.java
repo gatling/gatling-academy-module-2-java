@@ -180,7 +180,7 @@ public class DemostoreSimulation extends Simulation {
                         Choice.withWeight(10.0, exec(UserJourneys.completePurchase))));
 
     private static final ScenarioBuilder highPurchase =
-        scenario("High Purhcase Load Test")
+        scenario("High Purchase Load Test")
             .during(Duration.ofSeconds(60))
             .on(
                 randomSwitch()
