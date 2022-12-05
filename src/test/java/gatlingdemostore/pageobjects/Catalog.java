@@ -18,7 +18,7 @@ public final class Catalog {
         feed(categoryFeeder)
             .exec(
                 http("Load Product Page - #{categoryName}")
-                    .get("/product/#{categorySlug}")
+                    .get("/category/#{categorySlug}")
                     .check(css("h2[id='CategoryName']").isEL("#{categoryName}")));
   }
 
