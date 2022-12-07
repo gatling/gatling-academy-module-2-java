@@ -1,5 +1,7 @@
 package gatlingdemostore;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.concurrent.ThreadLocalRandom;
 
 public class SessionId {
@@ -8,6 +10,7 @@ public class SessionId {
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz".toCharArray();
   private static final int SESSION_ID_LENGTH = 10;
 
+  @NotNull
   static String random() {
     StringBuilder buffer = new StringBuilder(SESSION_ID_LENGTH);
     for (int i = 0; i < SESSION_ID_LENGTH; i++) {

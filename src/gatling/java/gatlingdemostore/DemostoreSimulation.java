@@ -41,7 +41,7 @@ public class DemostoreSimulation extends Simulation {
           .exec(session -> session.set("randomNumber", ThreadLocalRandom.current().nextInt()))
           .exec(session -> session.set("customerLoggedIn", false))
           .exec(session -> session.set("cartTotal", 0.00))
-          .exec(addCookie(Cookie("sessionId", SessionId.random()).withDomain(DOMAIN)));
+          .exec(addCookie(HttpDsl.Cookie("sessionId", SessionId.random()).withDomain(DOMAIN)));
 
   private static final class UserJourneys {
 

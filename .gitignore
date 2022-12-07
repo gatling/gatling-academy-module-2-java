@@ -6,6 +6,9 @@
 .scala_dependencies
 .cache
 
+# gradle
+.gradle
+
 # idea conf files
 .idea
 *.iml
